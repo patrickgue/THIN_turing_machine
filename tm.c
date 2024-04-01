@@ -63,10 +63,10 @@ void print_tape(struct s_state *s, struct s_language *l)
     
     for (i = 0; i < 20; i++)
     {
-        printf("%c ", l->gama[s->tape[(TAPE_SIZE/2) + s->position - 10 + i]]);
+        printf("|%c", l->gama[s->tape[(TAPE_SIZE/2) + s->position - 10 + i]]);
     }
     
-    printf("\n");
+    printf("\n ");
     for (i = 0; i < 10; i++)
     {
         printf("  ");
@@ -194,7 +194,7 @@ void config_tape(char *buff, struct s_state *state, struct s_language *lang)
     {
         state->tape[i] = 0;
     }
-    for (i = 0; i < strlen(buff); i++)
+    for (i = 0; i < strlen(buff) - 1; i++)
     {
         if (buff[i] != 'q')
         {
