@@ -14,3 +14,6 @@ after '--' the state machine definition begins:
 * first two are state transitions from one state to the other
 * next is the character read from tape, next is the one written to the tape
 * the last character 'L' or 'R' shows which way the tape advances
+
+
+build using BSD-Make (make on BSD, bmake on Linux/Mac) 
