@@ -115,33 +115,19 @@ void read_language(FILE *f, struct s_language *lang, struct s_state *state)
         else
         {
             if (strlen(buffer) == 0 || buffer[0] == '#')
-            {
                 continue;
-            }
             if (buffer[0] == 'S')
-            {
                 lang->sigma_count = read_alphabet(buffer, lang->sigma);
-            }
             else if (buffer[0] == 'G')
-            {
                 lang->gama_count = read_alphabet(buffer, lang->gama);
-            }
             else if (buffer[0] == 'Q')
-            {
                 lang->q_count = read_alphabet(buffer, lang->q);
-            }
             else if (buffer[0] == 'K')
-            {
                 config_tape(buffer, state, lang);
-            }
             else if (buffer[0] == 'q')
-            {
                 state->q = str_index(lang->q, buffer[2], lang->q_count);
-            }
             else if (strcmp(buffer, "--\n") == 0)
-            {
                 read_transitions = 1;
-            }
         }
     }
 
@@ -203,6 +189,7 @@ void config_tape(char *buff, struct s_state *state, struct s_language *lang)
 {
     int i, pos = 0;
     buff+=2;
+    state->position = 0;
     for (i = 0; i < TAPE_SIZE; i++)
     {
         state->tape[i] = 0;
